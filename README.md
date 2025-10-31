@@ -76,7 +76,7 @@ learn_korean/
 │
 ├── manage.py
 ├── requirements.txt
-
+└── README.md
 ---
 
 ## ⚙️ Installation & Setup
