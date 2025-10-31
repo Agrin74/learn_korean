@@ -30,6 +30,9 @@ Users can register, log in, take quizzes, and track their past scores.
 
 ✅ **Auto Question Loader**
 - Questions are automatically added to the admin panel using Python scripts (`import django` method).
+- populate_quiz.py(alphabet)
+- load_quiz.py(words)
+- quizes.py(grammar)
 
 ✅ **Score History**
 - After every quiz, the user can view all previous quiz scores.
