@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alphabet Quiz</title>
+  <style>
+    body { font-family: sans-serif; background: #fdf6f9; padding: 30px; }
+    .question { background: #fff; padding: 15px; margin: 15px 0; border-radius: 12px; box-shadow: 2px 2px 8px #ddd; }
+    h2 { text-align: center; color: #d63384; }
+    button { margin-top: 20px; background: #d63384; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #b82c70; }
+  </style>
+</head>
+<body>
+  <h2>📝 Korean Alphabet Quiz</h2>
+  <form id="quiz-form" method="POST">
+  {% csrf_token %}
+  {% for q in questions %}
+  <div class="question">
+    <p><strong>{{ forloop.counter }}.</strong> {{ q.question_text }}</p>
+    <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option1 }}"> {{ q.option1 }}</label><br>
+    <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option2 }}"> {{ q.option2 }}</label><br>
+    <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option3 }}"> {{ q.option3 }}</label><br>
+    <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option4 }}"> {{ q.option4 }}</label><br>
+  </div>
+  {% endfor %}
+  <button type="submit">submit</button>
+</form>
+
+
+  <p id="result" style="text-align:center; font-weight:bold; margin-top:20px;"></p>
+
+  
+</body>
+</html>

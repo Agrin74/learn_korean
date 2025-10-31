@@ -1,0 +1,86 @@
+
+.card {
+  border: 3px solid transparent;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transform: translateY(0); 
+}
+
+
+.card h1  {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+
+.alphabet {
+  border-color: #90515b;
+}
+.alphabet h1 {
+  color: #c24c60;
+}
+.alphabet:hover {
+  border-color: #690217;
+  box-shadow: 0 8px 20px rgba(230, 138, 157, 0.4);
+  transform: translateY(-10px) scale(1.05);
+}
+.alphabet:hover h1 {
+  color: #a70929;
+}
+
+
+.words {
+  border-color: #2c9b7b;
+}
+.words h1 {
+  color: #2c9b7b;
+}
+.words:hover {
+  border-color: #032f21;
+  box-shadow: 0 8px 20px rgba(108, 213, 179, 0.4);
+  transform: translateY(-10px) scale(1.05); 
+}
+.words:hover h1 {
+  color: #057250;
+}
+
+
+.grammar {
+  border-color: #3b7cd1;
+}
+.grammar h1 {
+  color: #3b7cd1;
+}
+.grammar:hover {
+  border-color: #092850;
+  box-shadow: 0 8px 20px rgba(127, 184, 255, 0.4);
+  transform: translateY(-10px) scale(1.05); 
+}
+.grammar:hover h1 {
+  color: #032a5a;
+}
+
+#logout {
+  position: absolute; top: 15px; right: 20px;
+  border: 1px solid red;
+  color: red;
+  background-color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.3s;        
+}
+#logout:hover {
+  background-color: #b76270;
+  border: #90515b;
+  color: aliceblue;
+}
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: gold;
+}

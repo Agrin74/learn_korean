@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>result</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #fafaff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #333;
+      }
+      .card {
+        background: white;
+        border: 2px solid #bbc1f8;
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        width: 350px;
+      }
+      h1 {
+        color: #46d633;
+      }
+      .score {
+        font-size: 2em;
+        color: #2cb86d;
+        margin: 15px 0;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        background-color: #33d633;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+      a:hover {
+        background-color: #2cb87b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1>result</h1>
+      <p>your score:</p>
+      <div class="score">{{ score }} / 100</div>
+      <h3>Your previous scores:</h3>
+      {% if previous_results %}
+        <table border="1" style="border-collapse: collapse; margin-top: 10px;">
+          <tr>
+            <th>Date</th>
+            <th>Score</th>
+          </tr>
+          {% for result in previous_results %}
+          <tr>
+            <td>{{ result.date_taken|date:"Y-m-d H:i" }}</td>
+            <td>{{ result.score }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>You haven’t taken this quiz before.</p>
+      {% endif %}
+
+      
+
+      <a href="{% url 'home' %}">🏠 back home</a>
+    </div>
+  </body>
+</html>

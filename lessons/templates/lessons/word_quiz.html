@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Word Quiz</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #fdf6f9;
+        padding: 30px;
+      }
+      h2 {
+        text-align: center;
+        color: #41d633;
+      }
+      .question {
+        background: #fff;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 12px;
+        box-shadow: 2px 2px 8px #ddd;
+      }
+      button {
+        margin-top: 20px;
+        background: #4bd633;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #2cb833;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>📚 Korean Word Quiz</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      {% for q in questions %}
+      <div class="question">
+        <p><strong>{{ forloop.counter }}.</strong> {{ q.question_text }}</p>
+
+        <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option1 }}"> {{ q.option1 }}</label><br>
+        <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option2 }}"> {{ q.option2 }}</label><br>
+        <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option3 }}"> {{ q.option3 }}</label><br>
+        <label><input type="radio" name="q{{ forloop.counter }}" value="{{ q.option4 }}"> {{ q.option4 }}</label><br>
+
+        <input type="hidden" name="correct{{ forloop.counter }}" value="{{ q.correct_answer }}">
+      </div>
+      {% endfor %}
+
+      <div style="text-align:center;">
+        <button type="submit">submit</button>
+      </div>
+    </form>
+  </body>
+</html>

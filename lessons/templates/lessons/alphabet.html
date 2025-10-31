@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>Korean Alphabet</title>
+    
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #fffafc;
+        margin: 40px;
+      }
+      h1 {
+        text-align: center;
+        color: #d63384;
+      }
+      .card {
+        border: 2px solid #f8bbd0;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+      button {
+        margin-top: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #ffb6c1;
+        color: #fff;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #f06292;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>Korean Alphabet</h1>
+      <div class="row">
+        {% for letter in letters %}
+        <div class="col-12 col-md-4">
+          <div class="card text-center">
+            <h2>{{ letter.korean_letter }}</h2>
+            <p><strong>Meaning (EN):</strong> {{ letter.meaning_en }}</p>
+            <p><strong>Meaning (FA):</strong> {{ letter.meaning_fa }}</p>
+            <button onclick="speak('{{ letter.korean_letter }}')">🔊 Pronounce</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+
+    <script>
+      function speak(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ko-KR'; 
+        speechSynthesis.speak(utterance);
+      }
+    </script>
+    <div class="text-center mt-4">
+      <a href="{% url 'home' %}" class="btn btn-lg btn-outline-dark">
+        🏠 Back to Home
+       </a>
+    </div>
+    <a href="{% url 'alphabet_quiz' %}" class="btn btn-primary mt-4">🎯 Take the Alphabet Quiz</a>
+
+  </body>
+</html>
